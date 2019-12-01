@@ -13,7 +13,7 @@
       </v-text-field>
     </div>
     <hr />
-    <v-tabs fixed-tabs>
+    <v-tabs grow>
       <v-tab @click="createUrl">Posts</v-tab>
       <v-tab @click="createUrl">Comments</v-tab>
       <v-tab @click="createUrl">Albums</v-tab>
