@@ -2,13 +2,11 @@ import axios from 'axios'
 
 export default {
   actions: {
-    fetchAlbums(ctx, payload) {
-      axios
+    async fetchAlbums(ctx, payload) {
+      const response = await axios
         .get("https://jsonplaceholder.typicode.com/albums?" + payload.params + "&_limit=" + payload.limit)
-        .then(function (response) {
-          const albums = response.data;
-          ctx.commit('updateAlbums', albums)
-        });
+      const albums = response.data;
+      ctx.commit('updateAlbums', albums)
     }
   },
   mutations: {

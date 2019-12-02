@@ -2,13 +2,11 @@ import axios from 'axios'
 
 export default {
   actions: {
-    fetchComments(ctx, payload) {
-      axios
+    async fetchComments(ctx, payload) {
+      const response = await axios
         .get("https://jsonplaceholder.typicode.com/comments?" + payload.params + "&_limit=" + payload.limit)
-        .then(function (response) {
-          const comments = response.data;
-          ctx.commit('updateComments', comments)
-        });
+      const comments = response.data;
+      ctx.commit('updateComments', comments)
     }
   },
   mutations: {

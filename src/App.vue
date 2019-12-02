@@ -6,7 +6,9 @@
     </div>
     <div id="inputs">
       <v-text-field :placeholder="placeholder" autofocus v-model="params">
-        <v-icon slot="prepend" v-html="url">https://jsonplaceholder.typicode.com/posts?</v-icon>
+        <v-icon slot="prepend" v-html="url"
+          >https://jsonplaceholder.typicode.com/posts?</v-icon
+        >
       </v-text-field>
       <v-text-field type="number" min="1" max="30" v-model="limit">
         <v-icon slot="prepend">&_limit=</v-icon>
@@ -33,7 +35,7 @@
           <h2>id: {{ comment.id }}</h2>
           <h3>name: {{ comment.name }}</h3>
           <h4>email: {{ comment.email }}</h4>
-          <p>body: {{comment.body}}</p>
+          <p>body: {{ comment.body }}</p>
         </div>
       </v-tab-item>
       <v-tab-item>
@@ -75,7 +77,12 @@ export default {
     "removePosts"
   ]),
   methods: {
-    ...mapMutations(['clearPosts', 'clearAlbums', 'clearComments', 'clearPhotos']),
+    ...mapMutations([
+      "clearPosts",
+      "clearAlbums",
+      "clearComments",
+      "clearPhotos"
+    ]),
     getData() {
       let payload = { limit: this.limit, params: this.params };
       this.$store.dispatch("fetchPosts", payload);
