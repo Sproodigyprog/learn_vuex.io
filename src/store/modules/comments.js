@@ -9,9 +9,6 @@ export default {
           const comments = response.data;
           ctx.commit('updateComments', comments)
         });
-    },
-    removeComments(ctx) {
-      ctx.commit('clearComments')
     }
   },
   mutations: {

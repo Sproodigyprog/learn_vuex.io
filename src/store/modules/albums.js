@@ -9,9 +9,6 @@ export default {
           const albums = response.data;
           ctx.commit('updateAlbums', albums)
         });
-    },
-    removeAlbums(ctx) {
-      ctx.commit('clearAlbums')
     }
   },
   mutations: {

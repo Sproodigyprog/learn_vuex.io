@@ -9,9 +9,6 @@ export default {
           const posts = response.data;
           ctx.commit('updatePosts', posts)
         });
-    },
-    removePosts(ctx) {
-      ctx.commit('clearPosts')
     }
   },
   mutations: {

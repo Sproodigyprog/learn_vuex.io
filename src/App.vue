@@ -56,7 +56,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex";
+import { mapGetters, mapMutations } from "vuex";
 
 export default {
   data() {
@@ -67,7 +67,6 @@ export default {
       placeholder: "see hints on jsonplaceholder"
     };
   },
-
   computed: mapGetters([
     "allPosts",
     "allComments",
@@ -76,6 +75,7 @@ export default {
     "removePosts"
   ]),
   methods: {
+    ...mapMutations(['clearPosts', 'clearAlbums', 'clearComments', 'clearPhotos']),
     getData() {
       let payload = { limit: this.limit, params: this.params };
       this.$store.dispatch("fetchPosts", payload);
@@ -84,10 +84,10 @@ export default {
       this.$store.dispatch("fetchPhotos", payload);
     },
     removeData() {
-      this.$store.dispatch("removePosts");
-      this.$store.dispatch("removeAlbums");
-      this.$store.dispatch("removeComments");
-      this.$store.dispatch("removePhotos");
+      this.clearPosts();
+      this.clearAlbums();
+      this.clearComments();
+      this.clearPhotos();
     },
     createUrl(event) {
       let folder = event.target.innerText.toLowerCase();

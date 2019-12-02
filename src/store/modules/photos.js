@@ -9,9 +9,6 @@ export default {
           const photos = response.data;
           ctx.commit('updatePhotos', photos)
         });
-    },
-    removePhotos(ctx) {
-      ctx.commit('clearPhotos')
     }
   },
   mutations: {
